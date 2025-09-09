@@ -1,0 +1,108 @@
+/* =========================================
+   Base & Layout Styles
+   ========================================= */
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    /* SPACING: 1rem margin creates space around the entire layout and browser edge */
+    margin: 1rem; 
+}
+
+/* CRITICAL: Ensures padding and borders are included in the element's total width/height */
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.row {
+    width: 100%;
+}
+
+/* Clearfix to contain floated elements */
+.row::after {
+    content: "",
+    display: table;
+    clear: both;
+}
+
+
+/* =========================================
+   Section & Title Styles
+   ========================================= */
+.content-box {
+    /* BORDERS: 1px solid black border on the entire section */
+    border: 1px solid black;
+    /* COLORS: A light gray background for the main content area */
+    background-color: #f0f0f0; 
+    color: #000000; /* Black text for readability */
+    
+    /* SPACING: Pushes text away from the box edges. Top padding is larger to clear the title. */
+    padding: 50px 20px 20px 20px; 
+    position: relative; /* Establishes positioning context for the title */
+}
+
+.section-title {
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    /* BORDERS: 1px solid black border on the title region */
+    border: 1px solid black; 
+    font-weight: bold;
+    font-size: 1.25em;
+    padding: 6px 25px;
+    width: 150px;
+    text-align: center;
+}
+
+/* COLORS: Unique background for each title, with black text for readability */
+#title-chicken { 
+    background-color: #ffc0cb; /* Pink */
+    color: #000000;
+} 
+#title-beef { 
+    background-color: #a52a2a; /* Brown */
+    color: #ffffff; /* White text for contrast on the darker color */
+} 
+#title-sushi { 
+    background-color: #f0e68c; /* Khaki */
+    color: #000000;
+}
+
+
+/* =========================================
+   Responsive Grid System
+   ========================================= */
+[class*="col-"] {
+    /* SPACING: Padding creates the "gutter" or horizontal space between sections. */
+    padding: 15px; 
+}
+
+/* --- Large devices (desktops) --- */
+@media (min-width: 992px) {
+    .col-lg-4 {
+        float: left;
+        width: 33.33%;
+    }
+}
+
+/* --- Medium devices (tablets) --- */
+@media (min-width: 768px) and (max-width: 991px) {
+    .col-md-6 {
+        float: left;
+        width: 50%;
+    }
+    .col-md-12 {
+        float: left;
+        width: 100%;
+    }
+}
+
+/* --- Small devices (phones) --- */
+/* No media query needed. By default, columns are full-width and stack vertically. */
+.col-sm-12 {
+    width: 100%;
+}
